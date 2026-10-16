@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body {
+  @apply font-body font-semibold text-pita-ink antialiased;
+  background-color: #fdf6ff;
+  background-image:
+    radial-gradient(circle at 1px 1px, #ecd2ff 1.5px, transparent 1.7px),
+    radial-gradient(700px 420px at 100% 0%, rgba(255,194,220,.45), transparent 60%),
+    radial-gradient(600px 400px at 0% 100%, rgba(189,240,220,.35), transparent 60%);
+  background-size: 28px 28px, auto, auto;
+  background-attachment: fixed;
+}
+h1, h2, h3, h4 { @apply font-display font-semibold; }
+.f-nunito { font-family: var(--font-nunito), system-ui, sans-serif; }
+.f-lora { font-family: var(--font-lora), Georgia, serif; }
+
+@layer components {
+  .card { @apply rounded-[26px] border-2 border-pita-line bg-white shadow-soft; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-pita-ink/10 px-5 py-2.5 text-sm font-bold transition active:translate-y-0.5; }
+  .btn-pink { @apply btn bg-pita-pink text-white shadow-pop hover:brightness-105; }
+  .btn-lilac { @apply btn bg-pita-300 text-pita-ink shadow-pop hover:brightness-105; }
+  .btn-ghost { @apply btn bg-white text-pita-ink hover:bg-pita-50; }
+  .input { @apply w-full rounded-2xl border-2 border-pita-line bg-pita-50 px-4 py-2.5 text-sm outline-none transition placeholder:text-pita-muted/70 focus:border-pita-400 focus:bg-white focus:ring-4 focus:ring-pita-300/30; }
+  .lbl { @apply mb-1 block text-xs font-extrabold uppercase tracking-wider text-pita-muted; }
+  .chip { @apply inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-extrabold; }
+}
+
+@media print {
+  @page { size: A4; margin: 0; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body { background: #fff !important; }
+}
